@@ -1,3 +1,43 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+    --green: #00A29B;
+    --white: #fff;
+    --green-text: #005346;
+    --gray: #eeedea;
+    --gree-secondary: #00a26b;
+    --black: #000;
+    --kanit: "Kanit", sans-serif;
+
+    /* Arial Regular - Texto */
+    /* Finalsix */
+}
+
+p {
+    font-size: 16px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: var(--kanit);
+}
+
+@media (max-width: 768px) {
+    p {
+        margin-bottom: 15px; 
+    }
+}
+
+
+/* Globales */
+.max-width {
+    max-width: 1250px !important;
+    width: 1250px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.full-width {
+    max-width: unset !important;
+}
