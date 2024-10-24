@@ -1,26 +1,32 @@
 <template>
     <header class="container-header">
-        <div class="redes-top">
-            <div class="max-width py-2 d-flex gap-3">
-                <a
-                    href="https://www.facebook.com/tu_pagina"
-                    target="_blank"
-                    class="social-icon"
-                >
-                    <i class="bi bi-facebook"></i>
-                </a>
-                <a
-                    href="https://twitter.com/tu_usuario"
-                    target="_blank"
-                    class="social-icon"
-                >
-                    <i class="bi bi-twitter-x"></i>
-                </a>
+        <div class="container max-width w-100">
+            <div class="row">
+                <div class="col">
+                    <div class="redes-top max-width w-100">
+                        <div class=" py-2 d-flex gap-3">
+                            <a
+                                href="https://www.facebook.com/tu_pagina"
+                                target="_blank"
+                                class="social-icon"
+                            >
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a
+                                href="https://twitter.com/tu_usuario"
+                                target="_blank"
+                                class="social-icon"
+                            >
+                                <i class="bi bi-twitter-x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="bg-gradient full-width py-3">
+        <div class="bg-gradient full-width py-3 d-flex">
             <div
-                class="header-medium max-width d-flex align-items-center justify-content-between"
+                class="header-medium max-width d-flex align-items-center justify-content-between w-100"
             >
                 <a class="navbar-brand d-flex align-items-center" href="#">
                     <img
@@ -46,9 +52,8 @@
                     </span>
                 </div>
             </div>
-        </div>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-personal navbar-expand-lg">
             <div class="container">
                 <button
                     class="navbar-toggler"
@@ -93,9 +98,11 @@
                         </li>
                     </ul>
                 </div>
-                
             </div>
         </nav>
+        </div>
+
+        
 
         <hr style="margin: 0 !important" />
     </header>
@@ -135,7 +142,6 @@ import logo_white from "@images/logos/logo-linotec-white.png";
         #00a29b 100%
     ); /* Gradiente */
     color: #fff;
-    padding: 1rem;
 }
 
 .contact-info span,
@@ -162,5 +168,30 @@ import logo_white from "@images/logos/logo-linotec-white.png";
     font-size: 14px;
     color: #005346;
     font-weight: 500;
+}
+
+.max-width {
+    max-width: 1250px;
+    width: 1250px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) { 
+    .contact-info, 
+    .container-email  {
+        display: none !important;
+    }
+}
+
+
+@media (min-width: 769px) { 
+    .contact-info, 
+    .container-email  {
+        display: block;
+    }
+
+    .navbar-personal {
+        display: none !important;
+    }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-gradient d-flex flex-column">
-            <div class="container max-width d-flex align-items-start">
+    <footer class="">
+        <nav class="navbar navbar-expand-lg d-flex flex-column">
+            <div class="container max-width d-flex align-items-start p-0">
                 <!-- BLOQUE 1 - LOGO -->
                 <div class="container-logo">
                     <a class="navbar-brand" href="#">
@@ -76,10 +76,10 @@
                 <div class="container-contacto">
                     <h5>Contacto</h5>
                     <div class="info d-flex flex-column gap-1">
-                        <small class="mb-2">
+                        <small class="mb-2 info-contacto-footer">
                             Para cualquier consulta, puedes seguirnos en
-                            nuestras redes sociales
-                            o contactarnos a través de los siguientes enlaces.
+                            nuestras redes sociales o contactarnos a través de
+                            los siguientes enlaces.
                         </small>
                         <span class="mb-2">
                             <div class="phone d-flex gap-2">
@@ -105,7 +105,7 @@
                         >
                     </span>
 
-                    <div class="max-width py-2 d-flex gap-3">
+                    <div class="py-2 d-flex gap-3">
                         <a
                             href="https://www.facebook.com/tu_pagina"
                             target="_blank"
@@ -118,19 +118,18 @@
                             target="_blank"
                             class="social-icon"
                         >
-                        <i class="bi bi-twitter-x"></i>
+                            <i class="bi bi-twitter-x"></i>
                         </a>
                     </div>
                 </div>
-
-          
             </div>
 
-            <small class="mt-3 copyright text-center">© {{ currentYear }} todos los derechos reservados Lino Félix Fernandez Laya – Gestionado por ElAyudante
-
-</small>
+            <small class="mt-3 copyright text-center px-3"
+                >© {{ currentYear }} todos los derechos reservados Lino Félix
+                Fernandez Laya – Gestionado por ElAyudante
+            </small>
         </nav>
-    </header>
+    </footer>
 </template>
 
 <script setup>
@@ -138,12 +137,12 @@ import { Link } from "@inertiajs/vue3";
 import logo_white from "@images/logos/logo-linotec-white.png";
 
 const currentYear = new Date().getFullYear();
-
-
 </script>
 
 <style scoped>
-.bg-gradient {
+
+footer {
+    padding: 2rem 0;
     background-color: #005346;
     background-image: linear-gradient(
         180deg,
@@ -151,8 +150,8 @@ const currentYear = new Date().getFullYear();
         #00a29b 100%
     ); /* Gradiente */
     color: #fff;
-    padding: 1rem;
 }
+
 
 .logo-linotec {
     width: 9rem;
@@ -167,7 +166,9 @@ const currentYear = new Date().getFullYear();
 }
 
 .max-width {
-    max-width: 1250px;
+    max-width: 1250px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
 }
 
 .social-icon {
@@ -190,24 +191,34 @@ const currentYear = new Date().getFullYear();
 }
 
 .copyright {
-    color: #C4D1EC;
+    color: #c4d1ec;
+}
+
+.container-contacto {
+    max-width: 400px;
+    
 }
 
 
 @media (max-width: 720px) {
-  .container-navbar {
-    width: 100%;
-  }
+    .container-navbar {
+        width: 100%;
+    }
 
-  .container-politicas {
-    margin-top: .5rem !important;
-  }
+    .container-politicas {
+        margin-top: 0.5rem !important;
+    }
 
-  .container-contacto {
-    margin-top: 2rem;
-  }
+
+    .container-contacto {
+        display: inline-block;
+        background-color: transparent; 
+        width: auto;
+        max-width: 100%; 
+    }
+
+    .info-contacto-footer {
+        max-width: 100%;
+    }
 }
-
-
-
 </style>
