@@ -1,9 +1,9 @@
 <template>
-    <div class="container-fliping-card bg-dark container-padding">
+    <div class="container-fliping-card container-padding">
       <div class="container">
         <div class="col">
-          <div class="row">
-            <h2 class="text-white">La mejor FIBRA del valle de SAJA</h2>
+          <div class="row text-center py-5">
+            <h2 class="title-servicios">Nuestros servicios</h2>
             <div class="col-12 d-flex justify-content-center flex-wrap">
               <!-- Generar tarjetas dinámicamente -->
               <div

@@ -18,6 +18,12 @@
         <div id="servicios">
             <FlipingCard></FlipingCard>
         </div>
+
+        <div id="marcas">
+            <MarcasTrabajamos></MarcasTrabajamos>
+        </div>
+
+        <FloatingActionButton></FloatingActionButton>
     </GuestLayout>
 </template>
 
@@ -28,7 +34,8 @@ import Carrousel from '@/Components/Carrousel/Carrousel.vue';
 import ConoceLino from '@/Components/ConoceLino/ConoceLino.vue';
 import CarrouselProductos from '@/Components/CarrouselProductos/CarrouselProductos.vue';
 import FlipingCard from '@/Components/FlipingCard/FlipingCard.vue';
-
+import MarcasTrabajamos from '@/Components/MarcasTrabajamos/MarcasTrabajamos.vue';
+import FloatingActionButton from '@/Components/FloatingActionButton/FloatingActionButton.vue';
 
 
 </script>
