@@ -12,15 +12,41 @@ const props = defineProps({
     },
 });
 
+// Computed property para las clases según si el enlace está activo o no
 const classes = computed(() =>
     props.active
-        ? 'inline-flex items-center px-1 pt-1 border-b-2 border-indigo-400 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out'
-        : 'inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out',
+        ? 'nav-link active' // Clases de Bootstrap para enlace activo
+        : 'nav-link' // Clases de Bootstrap para enlace normal
 );
 </script>
 
 <template>
-    <Link :href="href" :class="classes">
+    <Link :href="href" :class="classes" role="link" aria-current="page">
         <slot />
     </Link>
 </template>
+
+<style scoped>
+/* Opcional: Estilos adicionales si es necesario */
+.nav-link {
+    font-size: 0.875rem;
+    padding: 0.6rem 2rem; 
+    color: white;
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #00a29b;
+    transition: .3s ease-in;
+    font-family: "Kanit", sans-serif !important; 
+}
+
+
+.nav-link:hover {
+    color: white; 
+    background-color: #00a26b;
+
+}
+
+.nav-link.active {
+    border-bottom: 2px solid #007bff; 
+}
+</style>

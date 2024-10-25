@@ -14,7 +14,7 @@ import Footer from '@/Components/Footer/Footer.vue';
 
         <!-- Contenido principal -->
         <main class="flex-grow-1 d-flex align-items-center justify-content-center">
-            <div class="mt-6 w-100 overflow-hidden bg-white px-6 py-4 shadow-sm rounded">
+            <div class="w-100  bg-white">
                 <slot />
             </div>
         </main>
