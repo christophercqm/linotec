@@ -33,6 +33,11 @@ h1,h2,h3,h4,h5,h6 {
     transition: 0.5s ease;
 }
 
+.container-padding {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
 
 /* Globales */
 .max-width {

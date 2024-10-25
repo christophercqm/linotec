@@ -14,6 +14,10 @@
         <div id="carrousel-productos">
             <CarrouselProductos />
         </div>
+
+        <div id="servicios">
+            <FlipingCard></FlipingCard>
+        </div>
     </GuestLayout>
 </template>
 
@@ -23,6 +27,7 @@ import Productos from '@/Components/Productos/Productos.vue';
 import Carrousel from '@/Components/Carrousel/Carrousel.vue';
 import ConoceLino from '@/Components/ConoceLino/ConoceLino.vue';
 import CarrouselProductos from '@/Components/CarrouselProductos/CarrouselProductos.vue';
+import FlipingCard from '@/Components/FlipingCard/FlipingCard.vue';
 
 
 
