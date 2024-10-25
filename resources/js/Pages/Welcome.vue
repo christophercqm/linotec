@@ -23,6 +23,10 @@
             <MarcasTrabajamos></MarcasTrabajamos>
         </div>
 
+        <div class="contact-form">
+            <ContactForm></ContactForm>
+        </div>
+
         <FloatingActionButton></FloatingActionButton>
     </GuestLayout>
 </template>
@@ -36,7 +40,7 @@ import CarrouselProductos from '@/Components/CarrouselProductos/CarrouselProduct
 import FlipingCard from '@/Components/FlipingCard/FlipingCard.vue';
 import MarcasTrabajamos from '@/Components/MarcasTrabajamos/MarcasTrabajamos.vue';
 import FloatingActionButton from '@/Components/FloatingActionButton/FloatingActionButton.vue';
-
+import ContactForm from '@/Components/ContactForm/ContactForm.vue';
 
 </script>
 
