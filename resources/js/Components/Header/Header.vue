@@ -50,7 +50,7 @@
                             <a class="nav-link" href="#conoce-a-lino" @click.prevent="smoothScroll('#conoce-a-lino')">Conoce a Lino</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/servicios">Servicios</a>
+                            <a class="nav-link" href="#servicios">Servicios</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/blog">Blog</a>

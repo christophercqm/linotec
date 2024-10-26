@@ -30,23 +30,20 @@ const classes = computed(() =>
 /* Opcional: Estilos adicionales si es necesario */
 .nav-link {
     font-size: 0.875rem;
-    padding: 0.6rem 2rem; 
+    padding: 0.6rem 2rem;
     color: white;
     display: inline-block;
     border-radius: 5px;
     background-color: #00a29b;
     transition: .3s ease-in;
-    font-family: "Kanit", sans-serif !important; 
+    font-family: "Kanit", sans-serif !important;
 }
 
 
 .nav-link:hover {
-    color: white; 
+    color: white;
     background-color: #00a26b;
 
 }
 
-.nav-link.active {
-    border-bottom: 2px solid #007bff; 
-}
 </style>

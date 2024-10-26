@@ -1,5 +1,5 @@
 <template>
-    <div class="container-marcas container-padding">
+    <div class="container-marcas">
         <div class="container">
             <div class="col">
                 <div class="row">
@@ -8,7 +8,7 @@
                             Marcas con las que trabajamos
                         </h2>
                         <p
-                        class="text-center text-desc"  
+                        class="text-center text-desc"
                         >Siempre buscamos los artículos y productos más
                             actuales para brindar a nuestros clientes el mejor
                             asesoramiento
@@ -16,7 +16,7 @@
                     </div>
 
                     <div class="container-marcas d-flex justify-content-center flex-wrap gap-5">
-                        <div 
+                        <div
                             class="marca"
                             v-for="(marca, index) in marcas"
                             :key="index"
@@ -94,10 +94,10 @@ const marcas = [
 .container-marcas .marca {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; 
+    justify-content: center;
     width: 120px;
     height: 120px;
-    
+
 }
 
 

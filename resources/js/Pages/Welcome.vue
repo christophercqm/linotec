@@ -19,11 +19,11 @@
             <FlipingCard></FlipingCard>
         </div>
 
-        <div id="marcas">
+        <div id="marcas" class="bg-whitee paddin-y">
             <MarcasTrabajamos></MarcasTrabajamos>
         </div>
 
-        <div id="contacto">
+        <div id="contacto" class="paddin-y">
             <ContactForm></ContactForm>
         </div>
 

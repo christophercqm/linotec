@@ -1,12 +1,13 @@
 :root {
-    --green: #00A29B;          /* Verde principal */
+    --green: rgb(0, 162, 155);          /* Verde principal */
     --white: #fff;             /* Blanco */
-    --green-text: #005346;     /* Verde oscuro para texto */
+    --green-text: rgb(0, 83, 70);     /* Verde oscuro para texto */
     --gray: #eeedea;           /* Gris claro */
-    --green-secondary: #00a26b;/* Verde secundario */
+    --green-secondary: rgb(0, 162, 107);/* Verde secundario */
     --black: #000;             /* Negro */
     --border-radius: 5px;      /* Radio de borde */
     --kanit: "Kanit", sans-serif; /* Fuente Kanit */
+    --bg-white: rgba(196, 208, 235, .3);
 }
 
 
@@ -25,9 +26,10 @@ h1,h2,h3,h4,h5,h6 {
 
 @media (max-width: 768px) {
     p {
-        margin-bottom: 15px; 
+        margin-bottom: 15px;
     }
 }
+
 
 * {
     transition: 0.5s ease;
