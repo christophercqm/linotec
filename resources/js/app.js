@@ -1,14 +1,13 @@
-import 'bootstrap/dist/css/bootstrap.min.css'; // Importa el CSS de Bootstrap
-import 'bootstrap'; // Importa el JS de Bootstrap
-import 'bootstrap-icons/font/bootstrap-icons.css';
-
-
-import { createInertiaApp } from '@inertiajs/vue3';
-import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createApp, h } from 'vue';
+import { createInertiaApp } from '@inertiajs/inertia-vue3'; // Asegúrate de que esto esté bien
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
 
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
+const appName = import.meta.env.VITE_APP_NAME || 'Linotec';
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,

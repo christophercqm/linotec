@@ -13,7 +13,12 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('home');
+
+// Ruta para manejar el envío del formulario de contacto
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -25,8 +30,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
-Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
-Route::post('/contact', [ContactController::class, 'store']);
 
 });
 

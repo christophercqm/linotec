@@ -1,9 +1,7 @@
 <template>
     <div class="container">
         <h1 class="mb-4">Contacta con nosotros</h1>
-        
         <div class="row">
-            <!-- Columna para el formulario -->
             <div class="col-md-6">
                 <form @submit.prevent="submit">
                     <div class="form-group">
@@ -41,15 +39,16 @@
                         ></textarea>
                         <span v-if="form.errors.message" class="text-danger">{{ form.errors.message[0] }}</span>
                     </div>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <PrimaryButton type="submit" class="btn btn-primary">Enviar</PrimaryButton>
                 </form>
-                
-                <div v-if="successMessage" class="alert alert-success mt-3">
+                <!-- Mensajes de éxito y error -->
+                <div v-if="successMessage" class="alert alert-success mt-3" role="alert">
                     {{ successMessage }}
                 </div>
+                <div v-if="errorMessage" class="alert alert-danger mt-3" role="alert">
+                    {{ errorMessage }}
+                </div>
             </div>
-
-            <!-- Columna para información -->
             <div class="col-md-6">
                 <h2>Información de contacto</h2>
                 <p>Si tienes alguna duda, no dudes en contactarnos. Estamos aquí para ayudarte.</p>
@@ -63,7 +62,9 @@
 </template>
 
 <script setup>
-import { useForm } from '@inertiajs/inertia-vue3'; 
+import { useForm } from '@inertiajs/inertia-vue3';
+import Swal from 'sweetalert2';
+import PrimaryButton from '../PrimaryButton.vue';
 import { ref } from 'vue';
 
 const form = useForm({
@@ -73,19 +74,39 @@ const form = useForm({
     message: '',
 });
 
-// Variable para el mensaje de éxito
+// Variables para manejar los mensajes de éxito y error
 const successMessage = ref('');
+const errorMessage = ref('');
 
-// Método para enviar el formulario
 const submit = () => {
-    form.post('/contact', {
+    // Restablecer mensajes antes de enviar
+    successMessage.value = '';
+    errorMessage.value = '';
+
+    form.post(route('contact.store'), {
         onSuccess: () => {
-            // Limpia el formulario y establece el mensaje de éxito
-            form.reset();
-            successMessage.value = "Tu mensaje ha sido enviado con éxito!";
+            // Mostrar SweetAlert de éxito
+            Swal.fire({
+                icon: 'success',
+                title: '¡Éxito!',
+                text: 'Tu mensaje ha sido enviado con éxito!',
+                confirmButtonText: 'Aceptar',
+                timer: 2000, // Duración de 2 segundos
+                willClose: () => {
+                    form.reset(); // Limpiar el formulario después de que se cierra la alerta
+                }
+            });
         },
         onError: (errors) => {
-            console.log(errors);
+            // Manejo de errores
+            const errorMessages = Object.values(errors).flat();
+            errorMessage.value = errorMessages.join(' '); // Actualizar el mensaje de error
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: errorMessage.value,
+                confirmButtonText: 'Aceptar',
+            });
         }
     });
 };
@@ -95,18 +116,15 @@ const submit = () => {
 .form-group {
     margin-bottom: 15px;
 }
-
 .form-control {
     width: 100%;
     padding: 10px;
     border-radius: 4px;
     border: 1px solid #ccc;
 }
-
 .text-danger {
     font-size: 12px;
 }
-
 .btn {
     margin-top: 10px;
 }
