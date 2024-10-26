@@ -36,6 +36,7 @@
                             v-model="form.message"
                             placeholder="Asunto o escribe tu mensaje"
                             class="form-control"
+                            rows="3"
                         ></textarea>
                         <span v-if="form.errors.message" class="text-danger">{{ form.errors.message[0] }}</span>
                     </div>
@@ -62,11 +63,16 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import { useForm } from '@inertiajs/inertia-vue3';
 import Swal from 'sweetalert2';
 import PrimaryButton from '../PrimaryButton.vue';
-import { ref } from 'vue';
 
+// Inicializa los mensajes de éxito y error
+const successMessage = ref('');
+const errorMessage = ref('');
+
+// Inicializa `form` usando `useForm` y define los campos del formulario
 const form = useForm({
     full_name: '',
     phone: '',
@@ -74,40 +80,47 @@ const form = useForm({
     message: '',
 });
 
-// Variables para manejar los mensajes de éxito y error
-const successMessage = ref('');
-const errorMessage = ref('');
-
 const submit = () => {
-    // Restablecer mensajes antes de enviar
-    successMessage.value = '';
+    successMessage.value = ''; // Limpiar mensajes previos
     errorMessage.value = '';
+
+    // Mostrar SweetAlert de "Enviando..."
+    Swal.fire({
+        title: 'Enviando...',
+        html: 'Estamos procesando tu mensaje. Por favor, espera un momento.',
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading(); // Muestra el spinner de SweetAlert
+        },
+    });
 
     form.post(route('contact.store'), {
         onSuccess: () => {
-            // Mostrar SweetAlert de éxito
-            Swal.fire({
-                icon: 'success',
-                title: '¡Éxito!',
-                text: 'Tu mensaje ha sido enviado con éxito!',
-                confirmButtonText: 'Aceptar',
-                timer: 2000, // Duración de 2 segundos
-                willClose: () => {
-                    form.reset(); // Limpiar el formulario después de que se cierra la alerta
-                }
-            });
+            // Retardo antes de mostrar el resultado de éxito
+            setTimeout(() => {
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Éxito!',
+                    text: 'Tu mensaje ha sido enviado con éxito!',
+                    confirmButtonText: 'Aceptar',
+                    willClose: () => {
+                        form.reset(); // Limpiar el formulario cuando se cierra la alerta
+                        location.reload(); // Recargar la página actual
+                    },
+                });
+            }, 1500); // 1.5 segundos de retardo
         },
-        onError: (errors) => {
-            // Manejo de errores
-            const errorMessages = Object.values(errors).flat();
-            errorMessage.value = errorMessages.join(' '); // Actualizar el mensaje de error
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: errorMessage.value,
-                confirmButtonText: 'Aceptar',
-            });
-        }
+        onError: () => {
+            // Retardo antes de mostrar el resultado de error
+            setTimeout(() => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Ocurrió un error al enviar el mensaje. Por favor, intenta nuevamente.',
+                    confirmButtonText: 'Aceptar',
+                });
+            }, 1500); // 1.5 segundos de retardo
+        },
     });
 };
 </script>

@@ -23,7 +23,7 @@
             <MarcasTrabajamos></MarcasTrabajamos>
         </div>
 
-        <div class="contact-form">
+        <div id="contacto">
             <ContactForm></ContactForm>
         </div>
 
